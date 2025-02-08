@@ -3,16 +3,16 @@ kind: Ingress
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Values.namespace }}
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    name: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
 spec:
   rules:
   - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - backend:
-          service:
-            name: {{ .Release.Name }}
-            port:
-              number: {{ .Values.service.externalPort }}
-            path: /*
+      - path: /
+        backend:
+          serviceName: {{ .Release.Name }}
+          servicePort: {{ .Values.service.externalPort }}
