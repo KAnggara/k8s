@@ -2,7 +2,7 @@ replicaCount: 1
 namespace: dev
 
 image:
-  repository: nginx
+  repository: kanggara75/demo-app
   tag: latest
   pullPolicy: Always
 
@@ -13,7 +13,7 @@ application:
   readinessPeriodSeconds: 60
   timeoutSeconds: 60
   healthCheck: /
-  containerPort: 80
+  containerPort: 8080
   type: "spring"
   env:
     java_args: "--spring.cloud.config.uri=http://spring-cloud-config-server.default.svc.cluster.local --spring.profiles.active=sit --spring.cloud.config.fail-fast=true"
@@ -21,10 +21,10 @@ application:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
   javaOPTS: -Xms128m -Xmx256m
-  externalPort: 80
-  internalPort: 80
+  externalPort: 8080
+  internalPort: 8080
 
 ingress:
   host: dev.pakaiwa.my.id
