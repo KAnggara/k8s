@@ -1,0 +1,7 @@
+services:
+  demo:
+    image: kanggara75/demo-app:latest
+    container_name: demo-app
+    restart: always
+    ports:
+      - 8080:8080
