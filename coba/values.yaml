@@ -4,7 +4,7 @@ namespace: dev
 image:
   repository: kanggara75/demo-app
   tag: latest
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 deployment:
 
@@ -21,9 +21,9 @@ application:
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
   javaOPTS: -Xms128m -Xmx256m
-  externalPort: 8080
+  externalPort: 80
   internalPort: 8080
 
 ingress:
