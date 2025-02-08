@@ -16,4 +16,5 @@ spec:
         backend:
           service:
             name: {{ .Release.Name }}
-            port: {{ .Values.service.externalPort }}
+            port: 
+              number: {{ .Values.service.externalPort }}
