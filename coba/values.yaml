@@ -27,7 +27,7 @@ service:
   internalPort: 80
 
 ingress:
-  host: coba.api.dev.pakaiwa.my.id
+  host: dev.pakaiwa.my.id
 
 hpa:
   maxReplicas: 1
