@@ -1,9 +1,9 @@
 replicaCount: 1
-namespace: sit
+namespace: dev
 
 image:
-  repository: kanggara75/demo-app:latest
-  tag: sit
+  repository: kanggara75/demo-app
+  tag: latest
   pullPolicy: Always
 
 deployment:
