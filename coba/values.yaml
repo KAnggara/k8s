@@ -12,8 +12,8 @@ application:
   readinessInitialDelaySeconds: 60
   readinessPeriodSeconds: 60
   timeoutSeconds: 60
-  healthCheck: /actuator/health
-  containerPort: 8080
+  healthCheck: /
+  containerPort: 80
   type: "spring"
   env:
     java_args: "--spring.cloud.config.uri=http://spring-cloud-config-server.default.svc.cluster.local --spring.profiles.active=sit --spring.cloud.config.fail-fast=true"
