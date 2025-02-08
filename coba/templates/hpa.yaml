@@ -3,7 +3,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Values.namespace }}
-	labels:
+  labels:
     app: {{ .Release.Name }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -15,7 +15,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: {{ .Release.Name }}
-	metrics:
+  metrics:
     - type: Resource
       resource:
         name: cpu
