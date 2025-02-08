@@ -22,6 +22,8 @@ application:
 service:
   type: ClusterIP
   port: 80
+  javaOPTS: -Xms128m -Xmx256m
+  externalPort: 80
   internalPort: 80
 
 ingress:
