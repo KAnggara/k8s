@@ -27,7 +27,7 @@ service:
   internalPort: 8080
 
 ingress:
-  host: dev.pakaiwa.my.id
+  host: tls.api.dev.pakaiwa.my.id
 
 hpa:
   maxReplicas: 1
