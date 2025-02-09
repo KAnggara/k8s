@@ -42,12 +42,11 @@ spec:
             {{- end }}
           {{- end }}
           ports:
-            - name: http
-              containerPort: { { .Values.application.containerPort } }
+            containerPort: { { .Values.application.containerPort } }
           readinessProbe:
             httpGet:
               path: { { .Values.application.healthCheck } }
-              port: http
+              port: { { .Values.application.containerPort } }
             initialDelaySeconds:
               { { .Values.application.readinessInitialDelaySeconds } }
             periodSeconds: { { .Values.application.readinessPeriodSeconds } }
