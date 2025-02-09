@@ -29,10 +29,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: { { .Values.image.pullPolicy } }
           env:
-          {{- range $key, $value := .Values.application.env}}
-          - name: {{ $key }}
-            value: {{ $value | quote }}
-          {{- end }}
+            {{- range $key, $value := .Values.application.env}}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
           args:
           {{- range $key, $value := .Values.application.args }}
             {{- if $value }}
