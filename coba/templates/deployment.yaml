@@ -28,6 +28,8 @@ spec:
         - name: { { .Release.Name } }
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: { { .Values.image.pullPolicy } }
+          ports:
+            - containerPort: {{ .Values.application.containerPort }}
           env:
             {{- range $key, $value := .Values.application.env}}
             - name: { { $key } }
@@ -42,11 +44,12 @@ spec:
             {{- end }}
           {{- end }}
           ports:
-            containerPort: { { .Values.application.containerPort } }
+            - name: http
+              containerPort: { { .Values.application.containerPort } }
           readinessProbe:
             httpGet:
               path: { { .Values.application.healthCheck } }
-              port: { { .Values.application.containerPort } }
+              port: http
             initialDelaySeconds:
               { { .Values.application.readinessInitialDelaySeconds } }
             periodSeconds: { { .Values.application.readinessPeriodSeconds } }
