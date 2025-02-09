@@ -43,15 +43,12 @@ spec:
             - --{{ $key }}
             {{- end }}
           {{- end }}
-          ports:
-            - name: http
-              containerPort: {{ .Values.application.containerPort }}
           readinessProbe:
             httpGet:
               path: {{ .Values.application.healthCheck }}
-              port: http
+              port: {{ .Values.application.containerPort }}
             initialDelaySeconds:
               {{ .Values.application.readinessInitialDelaySeconds }}
             periodSeconds: {{ .Values.application.readinessPeriodSeconds }}
             timeoutSeconds: {{ .Values.application.timeoutSeconds }}
-            resources: {{- toYaml .Values.resources | nindent 12 }}
+            resources: {{- toYaml .Values.resources | nindent 14 }}
