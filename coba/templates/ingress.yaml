@@ -5,6 +5,7 @@ metadata:
   namespace: {{ .Values.namespace }}
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   labels:
     name: {{ .Release.Name }}
     release: {{ .Release.Name }}
