@@ -26,3 +26,4 @@ spec:
     - hosts:
         - {{ .Values.ingress.host }}
       secretName: {{ .Release.Name }}-tls
+  ingressClassName: traefik
